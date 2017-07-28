@@ -15,3 +15,4 @@ Greetings from Frankfurt/Germany
 
 Peter Köhler
 
+###添加了dynamic不能转换问题

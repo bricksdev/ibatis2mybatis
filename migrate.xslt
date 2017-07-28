@@ -562,12 +562,21 @@
   		<xsl:apply-templates/>
   	</xsl:element>
 </xsl:template>
-
+<!-- for dynamic can`t migrate-->
+<xsl:template match="dynamic">
+	<xsl:element name="trim">
+		
+		<xsl:value-of select="@prepend" />
+		<xsl:apply-templates/>
+		
+   </xsl:element>
+</xsl:template>
+	
 <xsl:template match="comment()">
 	<xsl:copy/>
 </xsl:template>
 
-<xsl:template match="/sqlMap/typeAlias|statement|cacheModel|dynamic|isPropertyAvailable|isNotPropertyAvailable|isNotParameterPresent|isParameterPresent|/sqlMapConfig/properties">
+<xsl:template match="/sqlMap/typeAlias|statement|cacheModel|isPropertyAvailable|isNotPropertyAvailable|isNotParameterPresent|isParameterPresent|/sqlMapConfig/properties">
 	<xsl:comment>
 		Sorry, I can`t migrate	<xsl:value-of select="@*"/>
 		See console output for further details 
